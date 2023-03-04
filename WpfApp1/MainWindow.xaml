@@ -26,16 +26,16 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
-        
+
     </Window.Resources>
-    
-    
-    
-    
+
+
+
+
     <Page Background="Black">
         <!-- Top Section -->
         <Grid>
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="auto" />
@@ -46,22 +46,53 @@
                 <RowDefinition Height="593*"/>
                 <RowDefinition Height="353*"/>
             </Grid.RowDefinitions>
+            <Grid Background="DimGray" Grid.Row="0"/>
 
-            
-            
-            
+
+
             <Button 
                 Grid.Column="0"
                 Width="200"
                 Height="100"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Margin="62,55,0,0"
+                Margin="62,40,0,0"
                 Template="{StaticResource NoMouseOverButtonTemplate}"
                 Background="Transparent"
                 BorderThickness="0" Click="Button_Click">
-                <Image Source="Resources(Images)\logo.png"/>
+                <Image Source="Resources(Images)\logo.png">
+                    <Image.RenderTransform>
+                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                    </Image.RenderTransform>
+                    <Image.RenderTransformOrigin>
+                        <Point X="0.5" Y="0.5" />
+                    </Image.RenderTransformOrigin>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"
+                                     To="1.2" Duration="0:0:0.2" />
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"
+                                     To="1.2" Duration="0:0:0.2" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"
+                                     To="1" Duration="0:0:0.2" />
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"
+                                     To="1" Duration="0:0:0.2" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
             </Button>
+            
+            
 
             <Button
                 Grid.Column="0"
@@ -69,61 +100,234 @@
                 Height="100"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
-                Margin="1190,55,1163.333,0" 
+                Margin="1190,40,1163.333,0" 
                 Template="{StaticResource NoMouseOverButtonTemplate}"
                 Background="Transparent"
                 BorderThickness="0" Click="Button_Click">
-                <Image Source="Resources(Images)\map.png"/>
+                <Image Source="Resources(Images)\map.png">
+                    <Image.RenderTransform>
+                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                    </Image.RenderTransform>
+                    <Image.RenderTransformOrigin>
+                        <Point X="0.5" Y="0.5" />
+                    </Image.RenderTransformOrigin>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"
+                                     To="1.2" Duration="0:0:0.2" />
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"
+                                     To="1.2" Duration="0:0:0.2" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"
+                                     To="1" Duration="0:0:0.2" />
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"
+                                     To="1" Duration="0:0:0.2" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
             </Button>
+
+            <Button
+                Width="100"
+                Height="100"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0,40,64.333,0"
+                Template="{StaticResource NoMouseOverButtonTemplate}"
+                Background="Transparent"
+                BorderThickness="0" Click="Button_Click">
+                <Image Source="Resources(Images)\mail.png">
+                    <Image.RenderTransform>
+                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                    </Image.RenderTransform>
+                    <Image.RenderTransformOrigin>
+                        <Point X="0.5" Y="0.5" />
+                    </Image.RenderTransformOrigin>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"
+                                     To="1.2" Duration="0:0:0.2" />
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"
+                                     To="1.2" Duration="0:0:0.2" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"
+                                     To="1" Duration="0:0:0.2" />
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"
+                                     To="1" Duration="0:0:0.2" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+            </Button>
+            
+            
+            
             
             <Button
                 Width="100"
                 Height="100"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Margin="0,55,64.333,0"
+                Margin="0,40,194.333,0"
                 Template="{StaticResource NoMouseOverButtonTemplate}"
                 Background="Transparent"
                 BorderThickness="0" Click="Button_Click">
-                <Image Source="Resources(Images)\mail.png"/>
-            </Button>
-            <Button
-                Width="100"
-                Height="100"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Top"
-                Margin="0,55,194.333,0"
-                Template="{StaticResource NoMouseOverButtonTemplate}"
-                Background="Transparent"
-                BorderThickness="0" Click="Button_Click">
-                <Image Source="Resources(Images)\profile.png"/>
+                <Image Source="Resources(Images)\profile.png">
+                    <Image.RenderTransform>
+                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                    </Image.RenderTransform>
+                    <Image.RenderTransformOrigin>
+                        <Point X="0.5" Y="0.5" />
+                    </Image.RenderTransformOrigin>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"
+                                     To="1.2" Duration="0:0:0.2" />
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"
+                                     To="1.2" Duration="0:0:0.2" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"
+                                     To="1" Duration="0:0:0.2" />
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"
+                                     To="1" Duration="0:0:0.2" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
             </Button>
             
-            <TextBlock Margin="596,151.667,595.333,2.333" 
+            
+
+            <TextBlock
+                        Margin="596,151.667,595.333,2.333" 
                        Grid.Row="1" Text="STANDINGS" 
                        TextAlignment="Center" 
                        FontSize="100"
-                       FontFamily="H:\Formula 1 App\Font\TitilliumWeb-SemiBold.ttf"
-                       Foreground="White"/>
+                       FontFamily="Gill Sans MT"
+                       Foreground="white">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="0" Color="white"/>
+                </TextBlock.Effect>
 
+            </TextBlock>
+
+            
+            
             <!-- Mid Section -->
 
+            
+            
+            
             <Button 
-                Content="Driver Standings Button" 
                 Grid.Column="0"
-                Width="400"
-                Height="400"
+                Width="574"
+                Height="392"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Margin="822,101.667,0,0" Grid.Row="2" />
+                Margin="648,167,0,0" Grid.Row="2"
+                Template="{StaticResource NoMouseOverButtonTemplate}"
+                Background="Transparent"
+                BorderThickness="0" Click="Button_Click">
+                <Image Source="Resources(Images)\drivers.png">
+                    <Image.RenderTransform>
+                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                    </Image.RenderTransform>
+                    <Image.RenderTransformOrigin>
+                        <Point X="0.5" Y="0.5" />
+                    </Image.RenderTransformOrigin>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"
+                                     To="1.2" Duration="0:0:0.2" />
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"
+                                     To="1.2" Duration="0:0:0.2" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"
+                                     To="1" Duration="0:0:0.2" />
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"
+                                     To="1" Duration="0:0:0.2" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+            </Button>
+            
+            
+            
             <Button 
-                Content="Constructor Standings Button" 
                 Grid.Column="0"
-                Width="400"
-                Height="400"
+                Width="574"
+                Height="392"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Margin="0,101.667,822.333,0" Grid.Row="2" />
+                Margin="0,167,648,0" Grid.Row="2"
+                Template="{StaticResource NoMouseOverButtonTemplate}"
+                Background="Transparent"
+                BorderThickness="0" Click="Button_Click">
+                <Image Source="Resources(Images)\constructors.png">
+                    <Image.RenderTransform>
+                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                    </Image.RenderTransform>
+                    <Image.RenderTransformOrigin>
+                        <Point X="0.5" Y="0.5" />
+                    </Image.RenderTransformOrigin>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"
+                                     To="1.2" Duration="0:0:0.2" />
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"
+                                     To="1.2" Duration="0:0:0.2" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"
+                                     To="1" Duration="0:0:0.2" />
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"
+                                     To="1" Duration="0:0:0.2" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+            </Button>
         </Grid>
     </Page>
 </Window>
