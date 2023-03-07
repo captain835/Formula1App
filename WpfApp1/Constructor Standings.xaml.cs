@@ -10,35 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Constructor_Standings.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Constructor_Standings : Window
     {
-        public MainWindow()
+        public Constructor_Standings()
         {
             InitializeComponent();
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Driver_Standings_Click(object sender, RoutedEventArgs e)
+        private void Home_Click(object sender, RoutedEventArgs e)
         {
-            Driver_Standings obj = new Driver_Standings();
-            obj.Show();
-            this.Close();
-        }
-
-        private void Constructor_Standings_Click(object sender, RoutedEventArgs e)
-        {
-            Constructor_Standings obj = new Constructor_Standings();
+            MainWindow obj = new MainWindow();
             obj.Show();
             this.Close();
         }
@@ -46,13 +39,6 @@ namespace WpfApp1
         private void Tracks_Click(object sender, RoutedEventArgs e)
         {
             Tracks obj = new Tracks();
-            obj.Show();
-            this.Close();
-        }
-
-        private void Home_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow obj = new MainWindow();
             obj.Show();
             this.Close();
         }

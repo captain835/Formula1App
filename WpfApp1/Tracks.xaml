@@ -1,14 +1,11 @@
-﻿<Window x:Class="WpfApp1.MainWindow"
+﻿<Window x:Class="WpfApp1.Tracks"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1440" ResizeMode="NoResize" Width="2560">
-
-
-
+        Title="Tracks" Height="1440" ResizeMode="NoResize" Width="2560">
 
     <Page Background="Black">
         <!-- Top Section -->
@@ -70,10 +67,10 @@
                     </Image.Triggers>
                 </Image>
             </Button>
-            
-            
 
-            <Button x:Name ="Tracks"
+
+
+            <Button
                 Grid.Column="0"
                 Width="200"
                 Height="100"
@@ -83,7 +80,7 @@
                 Template="{StaticResource NoMouseOverButtonTemplate}"
                 Cursor="Hand"
                 Background="Transparent"
-                BorderThickness="0" Click="Tracks_Click">
+                BorderThickness="0" Click="Button_Click">
                 <Image Source="Resources(Images)\map.png">
                     <Image.RenderTransform>
                         <ScaleTransform ScaleX="1" ScaleY="1" />
@@ -157,10 +154,10 @@
                     </Image.Triggers>
                 </Image>
             </Button>
-            
-            
-            
-            
+
+
+
+
             <Button x:Name="Profile"
                 Width="100"
                 Height="100"
@@ -172,116 +169,6 @@
                 Background="Transparent"
                 BorderThickness="0" Click="Profile_Click">
                 <Image Source="Resources(Images)\profile.png">
-                    <Image.RenderTransform>
-                        <ScaleTransform ScaleX="1" ScaleY="1" />
-                    </Image.RenderTransform>
-                    <Image.RenderTransformOrigin>
-                        <Point X="0.5" Y="0.5" />
-                    </Image.RenderTransformOrigin>
-                    <Image.Triggers>
-                        <EventTrigger RoutedEvent="MouseEnter">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"
-                                     To="1.2" Duration="0:0:0.2" />
-                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"
-                                     To="1.2" Duration="0:0:0.2" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                        <EventTrigger RoutedEvent="MouseLeave">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"
-                                     To="1" Duration="0:0:0.2" />
-                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"
-                                     To="1" Duration="0:0:0.2" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Image.Triggers>
-                </Image>
-            </Button>
-            
-            
-
-            <TextBlock
-                        Margin="596,151.667,595.333,2.333" 
-                       Grid.Row="1" Text="STANDINGS" 
-                       TextAlignment="Center" 
-                       FontSize="100"
-                       FontFamily="Gill Sans MT"
-                       Foreground="white">
-                <TextBlock.Effect>
-                    <DropShadowEffect ShadowDepth="0" BlurRadius="0" Color="white"/>
-                </TextBlock.Effect>
-
-            </TextBlock>
-
-            
-            
-            <!-- Mid Section -->
-
-            
-            
-            
-            <Button x:Name="Driver_Standings" 
-                Grid.Column="0"
-                Width="574"
-                Height="392"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Margin="648,167,0,0" Grid.Row="2"
-                Template="{StaticResource NoMouseOverButtonTemplate}"
-                Cursor="Hand"
-                Background="Transparent"
-                BorderThickness="0" Click="Driver_Standings_Click">
-                <Image x:Name="Drivers" Source="Resources(Images)\drivers.png">
-                    <Image.RenderTransform>
-                        <ScaleTransform ScaleX="1" ScaleY="1" />
-                    </Image.RenderTransform>
-                    <Image.RenderTransformOrigin>
-                        <Point X="0.5" Y="0.5" />
-                    </Image.RenderTransformOrigin>
-                    <Image.Triggers>
-                        <EventTrigger RoutedEvent="MouseEnter">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"
-                                     To="1.2" Duration="0:0:0.2" />
-                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"
-                                     To="1.2" Duration="0:0:0.2" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                        <EventTrigger RoutedEvent="MouseLeave">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"
-                                     To="1" Duration="0:0:0.2" />
-                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"
-                                     To="1" Duration="0:0:0.2" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Image.Triggers>
-                </Image>
-            </Button>
-
-
-
-            <Button x:Name="Constructor_Standings"
-                Grid.Column="0"
-                Width="574"
-                Height="392"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Top"
-                Margin="0,167,648,0" Grid.Row="2"
-                Template="{StaticResource NoMouseOverButtonTemplate}"
-                Cursor="Hand"
-                Background="Transparent"
-                BorderThickness="0" Click="Constructor_Standings_Click">
-                <Image Source="Resources(Images)\constructors.png">
                     <Image.RenderTransform>
                         <ScaleTransform ScaleX="1" ScaleY="1" />
                     </Image.RenderTransform>
