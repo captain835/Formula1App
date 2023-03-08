@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,6 +20,7 @@ namespace WpfApp1
     /// <summary>
     /// Interaction logic for LogIn.xaml
     /// </summary>
+    
     public partial class LogIn : Window
     {
         public LogIn()
@@ -40,9 +44,45 @@ namespace WpfApp1
             }
             else if (!(username.Text.Equals("")) && !(password.Equals("")))
             {
-                MainWindow obj = new MainWindow();
-                obj.Show();
-                this.Close();
+                
+
+                SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True");
+
+                try
+                {
+                    string query = "Select username from UserInfo where username = '" + username.Text + "'";
+                    sqlCon.Open();
+                    SqlCommand cmd = new SqlCommand(query, sqlCon);
+                    SqlDataReader reader;
+                    reader = cmd.ExecuteReader();
+                    
+                    if (reader.Read())
+                    {
+                        
+                        if(reader["username"].ToString() == username.Text)
+                        {
+                            
+                            User currentUser = new User();
+                            currentUser.Id = reader["username"].ToString();
+                            MainWindow obj = new MainWindow();
+                            obj.Show();
+                            this.Close();
+                        }
+                    }
+                    else {
+                        MessageBox.Show("Username or Password Inncorrect");
+                    }
+                    
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    sqlCon.Close();
+                }
             }
         }
         private void myTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -55,6 +95,20 @@ namespace WpfApp1
             SignUp obj = new SignUp();
             obj.Show();
             this.Close();
+        }
+    }
+    public class User
+    {
+        static string id = "";
+
+        public string Id
+        {
+            get
+            {
+                return id;
+            }
+            set { id = value; }
+
         }
     }
 }

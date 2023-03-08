@@ -217,7 +217,8 @@
                        TextAlignment="Center" 
                        FontSize="100"
                        FontFamily="Gill Sans MT"
-                       Foreground="white">
+                       Foreground="white"
+                       x:Name="username">
                 <TextBlock.Effect>
                     <DropShadowEffect ShadowDepth="0" BlurRadius="0" Color="white"/>
                 </TextBlock.Effect>
@@ -231,7 +232,8 @@
                        FontSize="65"
                        TextWrapping="Wrap"
                        FontFamily="Gill Sans MT"
-                       Foreground="white">
+                       Foreground="white"
+                       x:Name="bio">
                 <TextBlock.Effect>
                     <DropShadowEffect ShadowDepth="0" BlurRadius="0" Color="white"/>
                 </TextBlock.Effect>
