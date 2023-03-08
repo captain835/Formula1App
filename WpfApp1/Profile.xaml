@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Profile" Height="1440" ResizeMode="NoResize" Width="2560">
+        Title="Profile" WindowState="Maximized" Height="1440" ResizeMode="NoResize" Width="2560">
 
 
 
@@ -213,7 +213,7 @@
             </Ellipse>
 
             <TextBlock
-                       Grid.Row="2" Text = "{Binding username}"
+                       Grid.Row="2" Text = "Username"
                        TextAlignment="Center" 
                        FontSize="100"
                        FontFamily="Gill Sans MT"

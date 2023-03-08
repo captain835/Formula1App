@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Driver_Standings" Height="1440" Width="2560" ResizeMode="NoResize">
+        Title="Driver_Standings" WindowState="Maximized" Height="1440" Width="2560" ResizeMode="NoResize">
     <Page Background="Black">
         <Grid>
             <!-- Top Section -->
