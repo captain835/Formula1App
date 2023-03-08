@@ -33,8 +33,17 @@
                 HorizontalAlignment="Center"
                 FontFamily="Gill Sans MT"
                 Foreground="white"/>
-            
-            <TextBox x:Name="username"
+
+            <Border 
+                    Background="White" 
+                    CornerRadius="20" 
+                    Grid.Row="2"
+                    VerticalAlignment="Top"
+                    Padding="10" 
+                    Width="360" 
+                    Height="64">
+                <TextBox x:Name="username"
+                     GotFocus="myTextBox_GotFocus"
                      Grid.Row="2"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Top"
@@ -43,10 +52,21 @@
                      Width="364" Height="50"
                      Text="Username"
                      TextAlignment="Center"
+                     BorderThickness="0"
                      FontSize="30"
-                     FontFamily="Gill Sans MT"/>
-            
-            <PasswordBox x:Name="password"
+                     FontFamily="Gill Sans MT"
+                     Foreground="LightGray"/>
+            </Border>
+
+            <Border 
+                    Background="White" 
+                    CornerRadius="20" 
+                    Grid.Row="2"
+                    VerticalAlignment="Center"
+                    Padding="10" 
+                    Width="360" 
+                    Height="64">
+                <PasswordBox x:Name="password"
                      Grid.Row="2"
                      HorizontalContentAlignment="Center"
                      VerticalContentAlignment="Center"
@@ -55,7 +75,7 @@
                      Width="364" Height="50"
                      FontSize="30"
                      FontFamily="Gill Sans MT"/>
-
+            </Border>
             <Border 
                     Background="red" 
                     CornerRadius="20" 
@@ -79,17 +99,24 @@
                         FontWeight="Bold" 
                         BorderThickness="0"/>
             </Border>
-            
-            
-            <TextBlock 
-                Text="Haven't signed up yet?" 
-                Grid.Row="3" 
-                FontSize="25" 
-                TextAlignment="Center" 
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                FontFamily="Gill Sans MT"
-                Foreground="white"/>
+
+            <Button x:Name="Sign_Up"
+                        Template="{StaticResource NoMouseOverButtonTemplate}"
+                        Click="Sign_Up_Click"
+                        Content="Haven't signed up yet?"
+                        FontStyle="Italic"
+                        Grid.Row="3" 
+                        FontSize="25" 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        FontFamily="Gill Sans MT"
+                        Width="370" 
+                        Height="70" 
+                        Padding="10" 
+                        Background="black" 
+                        Foreground="White" 
+                        FontWeight="Bold" 
+                        BorderThickness="0"/>
 
 
         </Grid>

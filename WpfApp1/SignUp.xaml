@@ -22,7 +22,7 @@
 
             <Image Source="Resources(Images)\logo.png" Grid.Row="0" Width="550" Height="137.5" />
 
-
+ 
 
             <TextBlock 
                 Text="Sign Up" 
@@ -33,9 +33,17 @@
                 HorizontalAlignment="Center"
                 FontFamily="Gill Sans MT"
                 Foreground="white"/>
-
-            <TextBox x:Name="username"
+            <Border 
+                    Background="White" 
+                    CornerRadius="20" 
+                    Grid.Row="2"
+                    VerticalAlignment="Top"
+                    Padding="10" 
+                    Width="360" 
+                    Height="64">
+                <TextBox x:Name="username"
                      Grid.Row="2"
+                     GotFocus="myTextBox_GotFocus"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Top"
                      HorizontalContentAlignment="Center"
@@ -44,8 +52,21 @@
                      Text="Username"
                      TextAlignment="Center"
                      FontSize="30"
-                     FontFamily="Gill Sans MT"/>
+                     FontFamily="Gill Sans MT"
+                     Background="White"
+                     BorderThickness="0"
+                     Foreground="LightGray"/>
+            </Border>
 
+        
+            <Border 
+                    Background="White" 
+                    CornerRadius="20" 
+                    Grid.Row="2"
+                    VerticalAlignment="Center"
+                    Padding="10" 
+                    Width="360" 
+                    Height="64">
             <PasswordBox x:Name="password"
                      Grid.Row="2"
                      HorizontalContentAlignment="Center"
@@ -55,15 +76,29 @@
                      Width="364" Height="50"
                      FontSize="30"
                      FontFamily="Gill Sans MT"/>
-            <PasswordBox x:Name="passwordCheck"
+            </Border>
+
+            <Border 
+                    Background="White" 
+                    CornerRadius="20" 
+                    Grid.Row="2"
+                    VerticalAlignment="Bottom"
+                    Padding="10" 
+                    Width="360" 
+                    Height="64">
+                <PasswordBox x:Name="passwordCheck"
                      Grid.Row="2"
                      HorizontalContentAlignment="Center"
                      VerticalContentAlignment="Center"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Bottom"
                      Width="364" Height="50"
+                     BorderThickness="0"
                      FontSize="30"
                      FontFamily="Gill Sans MT"/>
+            </Border>
+        
+        
             <Border 
                     Background="red" 
                     CornerRadius="20" 

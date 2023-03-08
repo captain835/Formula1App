@@ -77,6 +77,11 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            <Storyboard x:Key="FadeInAnimation">
+                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                             From="0" To="1"
+                             Duration="0:0:1" />
+            </Storyboard>
 
         </ResourceDictionary>
     </Application.Resources>

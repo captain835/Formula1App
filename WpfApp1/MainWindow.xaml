@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:WpfApp1" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" WindowState="Maximized" Height="1440" ResizeMode="NoResize" Width="2560">
-
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard Storyboard="{StaticResource FadeInAnimation}" />
+        </EventTrigger>
+    </Window.Triggers>
 
 
 

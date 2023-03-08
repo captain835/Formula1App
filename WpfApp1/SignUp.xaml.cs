@@ -45,5 +45,10 @@ namespace WpfApp1
                 this.Close();
             }
         }
+        private void myTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = "";
+        }
     }
 }
