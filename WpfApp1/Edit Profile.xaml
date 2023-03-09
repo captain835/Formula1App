@@ -1,11 +1,11 @@
-﻿<Window x:Class="WpfApp1.Profile"
+﻿<Window x:Class="WpfApp1.Edit_Profile"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Profile" WindowState="Maximized" Height="1440" ResizeMode="NoResize" Width="2560">
+        Title="Edit_Profile" WindowState="Maximized" Height="1440" ResizeMode="NoResize" Width="2560">
 
 
 
@@ -206,40 +206,39 @@
 
             <!-- Body Section -->
 
-            
+
             <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Ellipse HorizontalAlignment="Center" Width="250" Height="250" Grid.Row="1" VerticalAlignment="Center">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="Resources(Images)\profile.png" />
                     </Ellipse.Fill>
                 </Ellipse>
-                <TextBlock
+                <TextBox
+                       GotFocus="myTextBox_GotFocus"
+                       BorderThickness="0"
+                       Cursor="IBeam"
                        Text = "Username"
                        TextAlignment="Center" 
                        FontSize="100"
                        FontFamily="Gill Sans MT"
-                       Foreground="white"
+                       Foreground="DimGray"
+                       Background="Black"
                        x:Name="username">
-                    <TextBlock.Effect>
-                        <DropShadowEffect ShadowDepth="0" BlurRadius="0" Color="white"/>
-                    </TextBlock.Effect>
+                </TextBox>
 
-                </TextBlock>
-
-                <TextBlock
+                <TextBox
+                       GotFocus="myTextBox_GotFocus"
                        Text="Bio" 
+                       BorderThickness="0"
                        TextAlignment="Center" 
                        FontSize="55"
                        FontStyle="Italic"
                        TextWrapping="Wrap"
                        FontFamily="Gill Sans MT"
-                       Foreground="LightGray"
+                       Foreground="DimGray"
+                       Background="Black"
                        x:Name="bio">
-                    <TextBlock.Effect>
-                        <DropShadowEffect ShadowDepth="0" BlurRadius="0" Color="white"/>
-                    </TextBlock.Effect>
-
-                </TextBlock>
+                </TextBox>
             </StackPanel>
             <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock
@@ -276,64 +275,72 @@
                     </StackPanel>
                     <StackPanel>
                         <Border 
-                    CornerRadius="20" 
-                    Padding="10" 
-                    Margin="10" 
-                    Width="304" 
-                    Height="304">
-                        <Border.Background>
-                            <ImageBrush ImageSource="Resources(Images)\leclerc.png" />
-                        </Border.Background>
-                    </Border>
+                            CornerRadius="20" 
+                            Padding="10" 
+                            Margin="10" 
+                            Width="304" 
+                            Height="304">
+                            <Border.Background>
+                                <ImageBrush ImageSource="Resources(Images)\leclerc.png" />
+                            </Border.Background>
+                        </Border>
                         <TextBlock
-                       Text = "Leclerc"
-                       TextAlignment="Center" 
-                       FontSize="30"
-                       FontFamily="Gill Sans MT"
-                       Foreground="PaleVioletRed"
-                       FontWeight="ExtraLight">
+                            Text = "Leclerc"
+                            TextAlignment="Center" 
+                            FontSize="30"
+                            FontFamily="Gill Sans MT"
+                            Foreground="PaleVioletRed"
+                            FontWeight="ExtraLight">
                         </TextBlock>
                     </StackPanel>
                     <StackPanel>
                         <Border 
-                    Background="DimGray"
+                            Background="DimGray"
+                            CornerRadius="20" 
+                            Padding="10" 
+                            Margin="10" 
+                            Width="304" 
+                            Height="304">
+                            <Image Source="Resources(Images)\ferrari.png" Height="284" Width="284"/>
+                        </Border>
+
+                        <TextBlock
+                            Text = "Ferrari"
+                            TextAlignment="Center" 
+                            FontSize="30"
+                            FontFamily="Gill Sans MT"
+                            Foreground="PaleVioletRed"
+                            FontWeight="ExtraLight">
+                        </TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <!-- Username edit -->
+            <Border 
+                    Background="red" 
                     CornerRadius="20" 
                     Padding="10" 
                     Margin="10" 
-                    Width="304" 
-                    Height="304">
-                    <Image Source="Resources(Images)\ferrari.png" Height="284" Width="284"/>
-                    </Border>
-
-                    <TextBlock
-                       Text = "Ferrari"
-                       TextAlignment="Center" 
-                       FontSize="30"
-                       FontFamily="Gill Sans MT"
-                       Foreground="PaleVioletRed"
-                       FontWeight="ExtraLight">
-                    </TextBlock>
-                </StackPanel>
-            </StackPanel>
-            </StackPanel>
-            <!-- Username edit -->
-            <Button x:Name="Change"
-                Template="{StaticResource NoMouseOverButtonTemplate}"
-                Click="Change_Click"
-                Cursor="Hand"
-                Content="Edit Profile" 
-                Grid.Row="3"
-                HorizontalAlignment="Center"
-                FontSize="28" 
-                FontWeight="Light" 
-                FontFamily="Gill Sans MT"
-                BorderThickness="0"
-                Foreground="white" 
-                Background="Black"
-                Width="270"
-                Height="60"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"/>
+                    Width="196" 
+                    Height="64"
+                    Grid.Row="3">
+                <Button x:Name="Save"
+                        Template="{StaticResource NoMouseOverButtonTemplate}"
+                        Content="Save" 
+                        Click="Save_Click"
+                        Margin="3,-2,3,0" 
+                        Width="170" 
+                        Height="46" 
+                        Padding="10" 
+                        Background="red" 
+                        Foreground="White" 
+                        FontSize="28" 
+                        FontWeight="Bold" 
+                        BorderThickness="0"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        />
+            </Border>
         </Grid>
     </Page>
 </Window>
