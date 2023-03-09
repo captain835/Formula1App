@@ -22,8 +22,8 @@ namespace WpfApp1
         public Profile()
         {
             InitializeComponent(); 
-            string username = "Username";
-            DataContext = this;
+            //string username = "Username";
+            //DataContext = this;
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
@@ -47,7 +47,9 @@ namespace WpfApp1
 
         private void Change_Click(object sender, RoutedEventArgs e)
         {
-
+            Edit_Profile obj = new Edit_Profile();
+            obj.Show();
+            this.Close();
         }
     }
 }
