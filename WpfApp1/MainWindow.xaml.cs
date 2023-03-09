@@ -528,10 +528,11 @@ namespace WpfApp1
         {
             Profile obj = new Profile();
             User currentUser = new User();
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True");
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=LABSCIFIPC21\LOCALHOST; Initial Catalog=f1; Integrated Security=True");
             try
             {
                 sqlCon.Open();
+                //Get username
 
                 string queryUsername = "Select username from UserInfo where username = '" + currentUser.Id + "'";
                 SqlCommand cmdUsername = new SqlCommand(queryUsername, sqlCon);
@@ -553,6 +554,7 @@ namespace WpfApp1
 
 
 
+                //Get  bio
 
                 string queryBio = "Select bio from UserInfo where username = '" + currentUser.Id + "'";
                 SqlCommand cmdBio = new SqlCommand(queryBio, sqlCon);
@@ -572,8 +574,207 @@ namespace WpfApp1
 
                 readerBio.Close();
 
+                //Get favorite track
+                string queryTrack = "Select favTrackId from UserInfo where username = '" + currentUser.Id + "'";
+                SqlCommand cmdTrack = new SqlCommand(queryBio, sqlCon);
+                SqlDataReader readerTrack;
+                readerTrack = cmdTrack.ExecuteReader();
+                if (readerTrack.Read())
+                {
 
-            }
+
+                    switch ((int)readerTrack["favTrackId"])
+                    {
+                        case 1:
+                            string imageTrack =
+                            break;
+
+                        case 2:
+
+                            break;
+
+                        case 3:
+
+                            break;
+
+                        case 4:
+
+                            break;
+
+                        case 5:
+                            break;
+
+                        case 6:
+                            break;
+
+                        case 7:
+                            break;
+
+                        case 8:
+
+                            break;
+
+                        case 9:
+                            break;
+
+                        case 10:
+                            break;
+
+                        case 11:
+
+                            break;
+                        case 12:
+                            break;
+
+                        case 13:
+                            break;
+
+                        case 14:
+                            break;
+
+                        case 15:
+                            break;
+
+                        case 16:
+                            break;
+
+                        case 17:
+                            break;
+
+                        case 18:
+                            break;
+
+                        case 19:
+                            break;
+
+                        case 20:
+                            break;
+
+
+
+
+
+                    }
+
+                }
+
+
+                readerTrack.Close();
+
+                //Get favorite driver
+                string queryDriver = "Select favDriverId from UserInfo where username = '" + currentUser.Id + "'";
+                SqlCommand cmdDriver = new SqlCommand(queryBio, sqlCon);
+                SqlDataReader readerDriver;
+                readerDriver = cmdDriver.ExecuteReader();
+                if (readerDriver.Read())
+                {
+                    string imageDriver;
+                    switch ((int)readerDriver["favDriverId"])
+                    {
+                        case 1:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Verstappen.jpg";
+                            break;
+
+                        case 2:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Seargent.png";
+                            break;
+
+                        case 3:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Norris.png";
+                            break;
+
+                        case 4:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\DeVries.png";
+                            break;
+
+                        case 5:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Hulkenberg.png";
+                            break;
+
+                        case 6:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Gasly.png";
+                            break;
+
+                        case 7:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Perez.jpg";
+                            break;
+
+                        case 8:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Alonso.png";
+                            break;
+
+                        case 9:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Leclerc.jpg";
+                            break;
+
+                        case 11:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Stroll.png";
+                            break;
+
+                        case 12:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Magnussen.png";
+                            break;
+
+                        case 13:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Tsunoda.png";
+                            break;
+
+                        case 14:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Albon.png";
+                            break;
+
+                        case 15:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Zhou.png";
+                            break;
+
+                        case 16:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Ocon.png";
+                            break;
+
+                        case 17:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Hamilton.png";
+                            break;
+
+                        case 18:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Piastri.png";
+                            break;
+
+                        case 19:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Sainz.jpg";
+                            break;
+
+                        case 20:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Russel.png";
+                            break;
+
+                        case 10:
+                            imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Bottas.jpg";
+                            break;
+
+                    }
+
+
+                    readerDriver.Close();
+
+
+                    //Get favorite team
+                    string queryTeam = "Select favTeamId from UserInfo where username = '" + currentUser.Id + "'";
+                    SqlCommand cmdTeam = new SqlCommand(queryBio, sqlCon);
+                    SqlDataReader readerTeam;
+                    readerTeam = cmdTeam.ExecuteReader();
+                    if (readerTeam.Read())
+                    {
+                        obj.bio.Text = readerTeam["bio"].ToString();
+                        obj.Show();
+                        this.Close();
+
+                    }
+
+
+                    readerTeam.Close();
+
+
+                }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
