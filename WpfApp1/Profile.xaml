@@ -21,8 +21,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="39*"/>
                 <RowDefinition Height="95*"/>
-                <RowDefinition Height="133*"/>
-                <RowDefinition Height="89*"/>
+                <RowDefinition Height="183*"/>
+                <RowDefinition Height="29*"/>
             </Grid.RowDefinitions>
             <Grid Background="DimGray" Grid.Row="0"/>
 
@@ -115,7 +115,7 @@
                     </Image.Triggers>
                 </Image>
             </Button>
-
+            
             <Button
                 Width="100"
                 Height="100"
@@ -211,74 +211,79 @@
                     <ImageBrush ImageSource="Resources(Images)\profile.png" />
                 </Ellipse.Fill>
             </Ellipse>
-
-            <TextBlock
-                       Grid.Row="2" Text = "Username"
+            <StackPanel Grid.Row="2">
+                <TextBlock
+                       Text = "Username"
                        TextAlignment="Center" 
                        FontSize="100"
                        FontFamily="Gill Sans MT"
                        Foreground="white"
                        x:Name="username">
-                <TextBlock.Effect>
-                    <DropShadowEffect ShadowDepth="0" BlurRadius="0" Color="white"/>
-                </TextBlock.Effect>
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="0" Color="white"/>
+                    </TextBlock.Effect>
 
-            </TextBlock>
+                </TextBlock>
 
-            <TextBlock
-                       Grid.Row="2" Text="Bio" 
+                <TextBlock
+                       Text="Bio" 
                        TextAlignment="Center" 
-                       VerticalAlignment="Center"
-                       FontSize="65"
+                       FontSize="55"
+                       FontStyle="Italic"
                        TextWrapping="Wrap"
                        FontFamily="Gill Sans MT"
-                       Foreground="white"
+                       Foreground="LightGray"
                        x:Name="bio">
-                <TextBlock.Effect>
-                    <DropShadowEffect ShadowDepth="0" BlurRadius="0" Color="white"/>
-                </TextBlock.Effect>
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="0" Color="white"/>
+                    </TextBlock.Effect>
 
-            </TextBlock>
-
-            <!-- Username edit -->
-            <StackPanel Grid.Row="3" Margin="0,20,0,0">
-                <TextBlock 
-                    Text="Change username" 
-                    FontSize="28" 
-                    FontWeight="Bold" 
-                    FontFamily="Gill Sans MT"
-                    Foreground="white" 
-                    Width="417" 
-                    TextAlignment="Center" />
-                <TextBox 
-                         Text="Type your new username" 
-                         FontFamily="Gill Sans MT"
-                         Margin="0,10,0,0" 
-                         Width="364" 
-                         TextAlignment="Center"
-                         Height="44"/>
-                <Border 
-                    Background="red" 
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock
+                       Text = "Favorites"
+                       TextAlignment="Center" 
+                       FontSize="60"
+                       FontFamily="Gill Sans MT"
+                       Foreground="PaleVioletRed"
+                    FontWeight="ExtraLight"
+                       x:Name="favorites">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="0" Color="white"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <StackPanel Orientation="Vertical">
+                    <Border 
+                    Background="DarkGray" 
                     CornerRadius="20" 
                     Padding="10" 
                     Margin="10" 
-                    Width="196" 
-                    Height="64">
-                    <Button x:Name="Change"
-                        Click="Change_Click"
-                        Content="Save" 
-                        Margin="3,-2,3,0" 
-                        Width="170" 
-                        Height="46" 
-                        Padding="10" 
-                        Background="red" 
-                        Foreground="White" 
-                        FontSize="20" 
-                        FontWeight="Bold" 
-                        BorderThickness="0"/>
-                </Border>
+                    Width="304" 
+                    Height="304">
+                        <Image Source="Resources(Images)\leclerc.png" Height="284" Width="284"/>
+                    </Border>
+                    <Image Source="photo2.jpg"/>
+                    <Image Source="photo3.jpg"/>
+                </StackPanel>
             </StackPanel>
-                    
+            <!-- Username edit -->
+            <Button x:Name="Change"
+                Click="Change_Click"
+                Cursor="Hand"
+                Content="Edit Profile" 
+                Grid.Row="3"
+                HorizontalAlignment="Center"
+                FontSize="28" 
+                FontWeight="Light" 
+                FontFamily="Gill Sans MT"
+                BorderThickness="0"
+                Foreground="white" 
+                Background="Black"
+                Width="270"
+                Height="60"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"/>
         </Grid>
     </Page>
 </Window>
