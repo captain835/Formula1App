@@ -47,33 +47,89 @@ namespace WpfApp1
                 
 
                 SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True");
-
+                User currentUser = new User();
                 try
                 {
-                    string query = "Select username from UserInfo where username = '" + username.Text + "'";
+
+
+                    string queryPass = "Select pass from UserInfo where username = '" + username.Text + "'";
                     sqlCon.Open();
+                    SqlCommand cmdPass = new SqlCommand(queryPass, sqlCon);
+                    SqlDataReader readerPass;
+                    readerPass = cmdPass.ExecuteReader();
+
+                    bool pass = false;
+                    bool user = false;
+
+                    if (readerPass.Read())
+                    {
+
+                        if (readerPass["pass"].ToString() == password.Password)
+                        {
+
+                            pass = true;
+                        }
+                        
+                    }
+                    
+
+                    readerPass.Close();
+
+                    string query = "Select username from UserInfo where username = '" + username.Text + "'";
+                   
                     SqlCommand cmd = new SqlCommand(query, sqlCon);
                     SqlDataReader reader;
                     reader = cmd.ExecuteReader();
-                    
+                    string Getusername = "";
                     if (reader.Read())
                     {
-                        
-                        if(reader["username"].ToString() == username.Text)
+
+                        if (reader["username"].ToString() == username.Text)
                         {
-                            
-                            User currentUser = new User();
-                            currentUser.Id = reader["username"].ToString();
-                            MainWindow obj = new MainWindow();
-                            obj.Show();
-                            this.Close();
+                            Getusername = reader["username"].ToString();
+                            currentUser.Username = Getusername;
+                            user = true;
                         }
+                        
                     }
-                    else {
+                    else
+                    {
+                        
+                    }
+
+                    reader.Close();
+
+
+                    string queryGetId = "Select id from UserInfo where username = '" + username.Text + "'";
+
+                    SqlCommand cmdGetId = new SqlCommand(queryGetId, sqlCon);
+                    SqlDataReader readerGetId;
+                    readerGetId = cmdGetId.ExecuteReader();
+                    if (readerGetId.Read())
+                    {
+
+                        
+                        currentUser.Id = (int)readerGetId["id"];
+
+                    }
+                    else
+                    {
+
+                    }
+
+                    reader.Close();
+
+
+                    if (pass && user)
+                    {
+                        MainWindow obj = new MainWindow();
+                        obj.Show();
+                        this.Close();
+                    }
+                    else
+                    {
                         MessageBox.Show("Username or Password Inncorrect");
                     }
-                    
-                    reader.Close();
                 }
                 catch (Exception ex)
                 {
@@ -99,9 +155,14 @@ namespace WpfApp1
     }
     public class User
     {
-        static string id = "";
+        static int id = 0;
+        static string favTeam = "";
+        static string favDriver = "";
+        static string favTrack = "";
+        static string bio = "";
+        static string username = "";
 
-        public string Id
+        public int Id
         {
             get
             {
@@ -109,6 +170,38 @@ namespace WpfApp1
             }
             set { id = value; }
 
+        }
+        public string FavTeam
+        {
+            get { return favTeam; }
+            set { favTeam = value; }
+        }
+
+        public string FavDriver
+        {
+            get { return favDriver; }  
+            set { favDriver = value; } 
+        }
+
+        public string FavTrack
+        {
+            get { return favTrack; }
+            set { favTrack = value; }
+        }
+
+        public string Bio
+        {
+            get { return bio; }
+            set { bio = value; }
+        }
+
+        public string Username
+        {
+            get { return username; }
+            set
+            {
+                username = value;
+            }   
         }
     }
 }

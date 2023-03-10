@@ -35,7 +35,7 @@ namespace WpfApp1
             Driver_Standings obj = new Driver_Standings();
             obj.Show();
 
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=LABSCIFIPC21\LOCALHOST; Initial Catalog=f1; Integrated Security=True");
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True");
 
             try
             {
@@ -348,7 +348,7 @@ namespace WpfApp1
             Constructor_Standings obj = new Constructor_Standings();
             obj.Show();
 
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=LABSCIFIPC21\LOCALHOST; Initial Catalog=f1; Integrated Security=True");
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True");
 
             try
             {
@@ -528,44 +528,39 @@ namespace WpfApp1
         {
             Profile obj = new Profile();
             User currentUser = new User();
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=LABSCIFIPC21\LOCALHOST; Initial Catalog=f1; Integrated Security=True");
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True");
+
+            bool isBio = false;
+            bool isTrack = false;
+            bool isDriver = false;
+            bool isTeam = false;
+
+            sqlCon.Open();
             try
             {
-                sqlCon.Open();
+
                 //Get username
 
-                string queryUsername = "Select username from UserInfo where username = '" + currentUser.Id + "'";
-                SqlCommand cmdUsername = new SqlCommand(queryUsername, sqlCon);
-                SqlDataReader readerUsername;
-                readerUsername = cmdUsername.ExecuteReader();
-                if (readerUsername.Read())
-                {
-                    obj.username.Text = readerUsername["username"].ToString();
-                    obj.Show();
-                    this.Close();
 
-                }
-                else
-                {
-                    MessageBox.Show("Username or Password Inncorrect");
-                }
+                obj.username.Text = currentUser.Username;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
 
-                readerUsername.Close();
-
-
-
-                //Get  bio
-
-                string queryBio = "Select bio from UserInfo where username = '" + currentUser.Id + "'";
+            //    //Get  bio
+            try
+            {
+                string queryBio = $"Select bio from UserInfo where id = {currentUser.Id}";
                 SqlCommand cmdBio = new SqlCommand(queryBio, sqlCon);
                 SqlDataReader readerBio;
                 readerBio = cmdBio.ExecuteReader();
                 if (readerBio.Read())
                 {
                     obj.bio.Text = readerBio["bio"].ToString();
-                    obj.Show();
-                    this.Close();
-
+                    currentUser.Bio = readerBio["bio"].ToString();
+                    isBio = true;
                 }
                 else
                 {
@@ -574,214 +569,315 @@ namespace WpfApp1
 
                 readerBio.Close();
 
-                //Get favorite track
-                string queryTrack = "Select favTrackId from UserInfo where username = '" + currentUser.Id + "'";
-                SqlCommand cmdTrack = new SqlCommand(queryBio, sqlCon);
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
+            //Get favorite track
+            try
+            {
+                string queryTrack = "Select favTrackId from UserInfo where id = " + currentUser.Id;
+                SqlCommand cmdTrack = new SqlCommand(queryTrack, sqlCon);
                 SqlDataReader readerTrack;
                 readerTrack = cmdTrack.ExecuteReader();
                 if (readerTrack.Read())
                 {
 
-
+                    string imageTrack = "";
                     switch ((int)readerTrack["favTrackId"])
                     {
                         case 1:
-                            string imageTrack =
+                            imageTrack = "pack://application:,,,/Resources(Images)\\Tracks\\Bahrain.png";
+                            isTrack = true;
                             break;
 
                         case 2:
+                            imageTrack = "pack://application:,,,/Resources(Images)\\Tracks\\Jeddah.png";
+                            isTrack = true;
 
                             break;
 
                         case 3:
+                            imageTrack = "pack://application:,,,/Resources(Images)\\Tracks\\Melbourne.png";
+                            isTrack = true;
 
                             break;
 
                         case 4:
+                            imageTrack = "pack://application:,,,/Resources(Images)\\Tracks\\Baku.png";
+                            isTrack = true;
 
                             break;
 
                         case 5:
+                            imageTrack = "pack://application:,,,/Resources(Images)\\Tracks\\Miami.png";
+                            isTrack = true;
+
                             break;
 
                         case 6:
+                            imageTrack = "pack://application:,,,/Resources(Images)\\Tracks\\Imola.png";
+                            isTrack = true;
+
                             break;
 
                         case 7:
-                            break;
-
-                        case 8:
-
-                            break;
-
-                        case 9:
-                            break;
-
-                        case 10:
-                            break;
-
-                        case 11:
+                            imageTrack = "pack://application:,,,/Resources(Images)\\Tracks\\Monaco.png";
+                            isTrack = true;
 
                             break;
-                        case 12:
-                            break;
-
-                        case 13:
-                            break;
-
-                        case 14:
-                            break;
-
-                        case 15:
-                            break;
-
-                        case 16:
-                            break;
-
-                        case 17:
-                            break;
-
-                        case 18:
-                            break;
-
-                        case 19:
-                            break;
-
-                        case 20:
-                            break;
-
-
 
 
 
                     }
 
+
+                    obj.Track.Source = new BitmapImage(new Uri(imageTrack));
+                    currentUser.FavTrack = imageTrack;
+
                 }
-
-
                 readerTrack.Close();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
 
-                //Get favorite driver
-                string queryDriver = "Select favDriverId from UserInfo where username = '" + currentUser.Id + "'";
-                SqlCommand cmdDriver = new SqlCommand(queryBio, sqlCon);
+
+            //Get favorite driver
+            try
+            {
+                string queryDriver = "Select favDriverId from UserInfo where id = " + currentUser.Id;
+                SqlCommand cmdDriver = new SqlCommand(queryDriver, sqlCon);
                 SqlDataReader readerDriver;
                 readerDriver = cmdDriver.ExecuteReader();
                 if (readerDriver.Read())
                 {
-                    string imageDriver;
+                    string imageDriver = "";
                     switch ((int)readerDriver["favDriverId"])
                     {
                         case 1:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Verstappen.jpg";
+                            isDriver = true;
                             break;
 
                         case 2:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Seargent.png";
+                            isDriver = true;
                             break;
 
                         case 3:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Norris.png";
+                            isDriver = true;
                             break;
 
                         case 4:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\DeVries.png";
+                            isDriver = true;
                             break;
 
                         case 5:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Hulkenberg.png";
+                            isDriver = true;
                             break;
 
                         case 6:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Gasly.png";
+                            isDriver = true;
                             break;
 
                         case 7:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Perez.jpg";
+                            isDriver = true;
                             break;
 
                         case 8:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Alonso.png";
+                            isDriver = true;
                             break;
 
                         case 9:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Leclerc.jpg";
+                            isDriver = true;
                             break;
 
                         case 11:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Stroll.png";
+                            isDriver = true;
                             break;
 
                         case 12:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Magnussen.png";
+                            isDriver = true;
                             break;
 
                         case 13:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Tsunoda.png";
+                            isDriver = true;
                             break;
 
                         case 14:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Albon.png";
+                            isDriver = true;
                             break;
 
                         case 15:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Zhou.png";
+                            isDriver = true;
                             break;
 
                         case 16:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Ocon.png";
+                            isDriver = true;
                             break;
 
                         case 17:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Hamilton.png";
+                            isDriver = true;
                             break;
 
                         case 18:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Piastri.png";
+                            isDriver = true;
                             break;
 
                         case 19:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Sainz.jpg";
+                            isDriver = true;
                             break;
 
                         case 20:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Russel.png";
+                            isDriver = true;
                             break;
 
                         case 10:
                             imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Bottas.jpg";
+                            isDriver = true;
                             break;
 
                     }
 
 
-                    readerDriver.Close();
 
 
-                    //Get favorite team
-                    string queryTeam = "Select favTeamId from UserInfo where username = '" + currentUser.Id + "'";
-                    SqlCommand cmdTeam = new SqlCommand(queryBio, sqlCon);
-                    SqlDataReader readerTeam;
-                    readerTeam = cmdTeam.ExecuteReader();
-                    if (readerTeam.Read())
-                    {
-                        obj.bio.Text = readerTeam["bio"].ToString();
-                        obj.Show();
-                        this.Close();
-
-                    }
+                    obj.Driver.ImageSource = new BitmapImage(new Uri(imageDriver));
+                    currentUser.FavDriver = imageDriver;
 
 
-                    readerTeam.Close();
 
 
                 }
+                readerDriver.Close();
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
+            }
+            //Get favorite team
+            
+            try { 
+                string queryTeam = "Select favTeamId from UserInfo where id = " + currentUser.Id ;
+                SqlCommand cmdTeam = new SqlCommand(queryTeam, sqlCon);
+                SqlDataReader readerTeam;
+                readerTeam = cmdTeam.ExecuteReader();
+                if (readerTeam.Read())
+                {
+                    string imageTeam = "";
+                    switch ((int)readerTeam["favTeamId"])
+                    {
+                        case 1:
+                            imageTeam = "pack://application:,,,/Resources(Images)\\Team\\redbull.png";
+                            isTeam = true;
+                            break;
+
+                        case 2:
+                            imageTeam = "pack://application:,,,/Resources(Images)\\Team\\alphatauri.png";
+                            isTeam = true;
+                            break;
+
+                        case 3:
+                            imageTeam = "pack://application:,,,/Resources(Images)\\Team\\ferrari.png";
+                            isTeam = true;
+                            break;
+
+                        case 4:
+                            imageTeam = "pack://application:,,,/Resources(Images)\\Team\\alfaromeo.png";
+                            isTeam = true;
+                            break;
+
+                        case 5:
+                            imageTeam = "pack://application:,,,/Resources(Images)\\Team\\haas.png";
+                            isTeam = true;
+                            break;
+
+                        case 6:
+                            imageTeam = "pack://application:,,,/Resources(Images)\\Team\\alpine.png";
+                            isTeam = true;
+                            break;
+
+                        case 7:
+                            imageTeam = "pack://application:,,,/Resources(Images)\\Team\\mercedes.jpg";
+                            isTeam = true;
+                            break;
+
+                        case 8:
+                            imageTeam = "pack://application:,,,/Resources(Images)\\Team\\williams.png";
+                            isTeam = true;
+                            break;
+
+                        case 9:
+                            imageTeam = "pack://application:,,,/Resources(Images)\\Team\\aston.jpg";
+                            isTeam = true;
+                            break;
+
+                        case 10:
+                            imageTeam = "pack://application:,,,/Resources(Images)\\Team\\mclaren.png";
+                            isTeam = true;
+                            break;
+
+
+
+                    }
+
+                    obj.TeamYeah.Source = new BitmapImage(new Uri(imageTeam));
+                    currentUser.FavTeam = imageTeam;
+                }
+                readerTeam.Close();
+
+                
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
             }
             finally
             {
                 sqlCon.Close();
+
+            }
+            obj.Show();
+            this.Close();
+
+            if(isTeam = false)
+            {
+                obj.TeamYeah.Source = new BitmapImage(new Uri("pack://application:,,,/Resources(Images)\\no-image-icon-32.png"));
+                
+            }
+            if (isBio = false)
+            {
+                obj.bio.Text = "No Info";
+            }
+            if (isTrack = false)
+            {
+
+                obj.Track.Source = new BitmapImage(new Uri("pack://application:,,,/Resources(Images)\\no-image-icon-32.png"));
+            }
+            if (isDriver = false)
+            {
+                obj.Driver.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources(Images)\\no-image-icon-32.png"));
+
             }
 
 

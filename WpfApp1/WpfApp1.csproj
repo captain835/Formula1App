@@ -61,6 +61,11 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -200,6 +205,55 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources%28Images%29\leclerc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources%28Images%29\Tracks\Bahrain.png" />
+    <Resource Include="Resources%28Images%29\Tracks\Baku.png" />
+    <Resource Include="Resources%28Images%29\Tracks\Barcelona.png" />
+    <Resource Include="Resources%28Images%29\Tracks\Imola.png" />
+    <Resource Include="Resources%28Images%29\Tracks\Jeddah.png" />
+    <Resource Include="Resources%28Images%29\Tracks\Melbourne.png" />
+    <Resource Include="Resources%28Images%29\Tracks\Miami.png" />
+    <Resource Include="Resources%28Images%29\Tracks\Monaco.png" />
+    <Resource Include="Resources%28Images%29\Tracks\Montreal.png" />
+    <Resource Include="Resources%28Images%29\Tracks\Monza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources%28Images%29\Drivers\Albon.png" />
+    <Resource Include="Resources%28Images%29\Drivers\Alonso.png" />
+    <Resource Include="Resources%28Images%29\Drivers\Bottas.png" />
+    <Resource Include="Resources%28Images%29\Drivers\DeVries.png" />
+    <Resource Include="Resources%28Images%29\Drivers\Gasly.png" />
+    <Resource Include="Resources%28Images%29\Drivers\Hamilton.png" />
+    <Resource Include="Resources%28Images%29\Drivers\Hulkenberg.png" />
+    <Resource Include="Resources%28Images%29\Drivers\Leclerc.jpg" />
+    <Resource Include="Resources%28Images%29\Drivers\Magnussen.png" />
+    <Resource Include="Resources%28Images%29\Drivers\Norris.png" />
+    <Resource Include="Resources%28Images%29\Drivers\Ocon.png" />
+    <Resource Include="Resources%28Images%29\Drivers\Perez.jpg" />
+    <Resource Include="Resources%28Images%29\Drivers\Piastri.png" />
+    <Resource Include="Resources%28Images%29\Drivers\Russel.png" />
+    <Resource Include="Resources%28Images%29\Drivers\Sainz.jpg" />
+    <Resource Include="Resources%28Images%29\Drivers\Sargeant.png" />
+    <Resource Include="Resources%28Images%29\Drivers\Stroll.jpg" />
+    <Resource Include="Resources%28Images%29\Drivers\Tsunoda.png" />
+    <Resource Include="Resources%28Images%29\Drivers\Verstappen.jpg" />
+    <Resource Include="Resources%28Images%29\Drivers\Zhou.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources%28Images%29\no-image-icon-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources%28Images%29\Team\alfaromeo.png" />
+    <Resource Include="Resources%28Images%29\Team\alphatauri.png" />
+    <Resource Include="Resources%28Images%29\Team\alpine.png" />
+    <Resource Include="Resources%28Images%29\Team\aston.png" />
+    <Resource Include="Resources%28Images%29\Team\ferrari.png" />
+    <Resource Include="Resources%28Images%29\Team\haas.png" />
+    <Resource Include="Resources%28Images%29\Team\mclaren.png" />
+    <Resource Include="Resources%28Images%29\Team\mercedes.png" />
+    <Resource Include="Resources%28Images%29\Team\redbull.png" />
+    <Resource Include="Resources%28Images%29\Team\williams.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.6.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.6.0\build\MaterialDesignThemes.targets')" />

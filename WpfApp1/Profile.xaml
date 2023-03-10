@@ -263,16 +263,8 @@
                             Margin="10" 
                             Width="304" 
                             Height="304">
-                            <Image Source="Resources(Images)\monza.png" Height="284" Width="284"/>
+                            <Image x:Name ="Track" Source="Resources(Images)\monza.png" Height="284" Width="284"/>
                         </Border>
-                        <TextBlock
-                       Text = "Monza"
-                       TextAlignment="Center" 
-                       FontSize="30"
-                       FontFamily="Gill Sans MT"
-                       Foreground="PaleVioletRed"
-                       FontWeight="ExtraLight">
-                        </TextBlock>
                     </StackPanel>
                     <StackPanel>
                         <Border 
@@ -280,40 +272,23 @@
                     Padding="10" 
                     Margin="10" 
                     Width="304" 
-                    Height="304">
+                    Height="304" >
                         <Border.Background>
-                            <ImageBrush ImageSource="Resources(Images)\leclerc.png" />
+                            <ImageBrush x:Name="Driver" ImageSource="Resources(Images)\leclerc.png" />
                         </Border.Background>
                     </Border>
-                        <TextBlock
-                       Text = "Leclerc"
-                       TextAlignment="Center" 
-                       FontSize="30"
-                       FontFamily="Gill Sans MT"
-                       Foreground="PaleVioletRed"
-                       FontWeight="ExtraLight">
-                        </TextBlock>
                     </StackPanel>
                     <StackPanel>
                         <Border 
-                    Background="DimGray"
-                    CornerRadius="20" 
-                    Padding="10" 
-                    Margin="10" 
-                    Width="304" 
-                    Height="304">
-                    <Image Source="Resources(Images)\ferrari.png" Height="284" Width="284"/>
-                    </Border>
-
-                    <TextBlock
-                       Text = "Ferrari"
-                       TextAlignment="Center" 
-                       FontSize="30"
-                       FontFamily="Gill Sans MT"
-                       Foreground="PaleVioletRed"
-                       FontWeight="ExtraLight">
-                    </TextBlock>
-                </StackPanel>
+                            Background="DimGray"
+                            CornerRadius="20" 
+                            Padding="10" 
+                            Margin="10" 
+                            Width="304" 
+                            Height="304">
+                            <Image x:Name="TeamYeah" Source="Resources(Images)\ferrari.png" Height="284" Width="284"/>
+                        </Border>
+                    </StackPanel>
             </StackPanel>
             </StackPanel>
             <!-- Username edit -->
