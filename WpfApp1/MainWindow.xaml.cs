@@ -35,7 +35,7 @@ namespace WpfApp1
             Driver_Standings obj = new Driver_Standings();
             obj.Show();
 
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True");
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=DLAPTOP; Initial Catalog=f1; Integrated Security=True");
 
             try
             {
@@ -348,7 +348,7 @@ namespace WpfApp1
             Constructor_Standings obj = new Constructor_Standings();
             obj.Show();
 
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True");
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=DLAPTOP; Initial Catalog=f1; Integrated Security=True");
 
             try
             {
@@ -528,7 +528,7 @@ namespace WpfApp1
         {
             Profile obj = new Profile();
             User currentUser = new User();
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True");
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=DLAPTOP; Initial Catalog=f1; Integrated Security=True");
 
             bool isBio = false;
             bool isTrack = false;

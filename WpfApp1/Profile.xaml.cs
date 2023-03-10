@@ -88,7 +88,7 @@ namespace WpfApp1
 
 
 
-                SqlConnection SqlCon2 = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True");
+                SqlConnection SqlCon2 = new SqlConnection(@"Data Source=DLAPTOP; Initial Catalog=f1; Integrated Security=True");
                 
                 SqlCon2.Open();
                 SqlCommand cmdAddToList = new SqlCommand("Select First_name from drivers", SqlCon2);

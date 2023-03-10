@@ -18,8 +18,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="155*"/>
                 <RowDefinition Height="150*"/>
-                <RowDefinition Height="593*"/>
-                <RowDefinition Height="150*"/>
+                <RowDefinition Height="743*"/>
             </Grid.RowDefinitions>
             <Grid Background="DimGray" Grid.Row="0"/>
 
@@ -208,7 +207,7 @@
                             Padding="10" 
                             Width="304" 
                             Height="304" Grid.Row="2">
-                        <Image x:Name ="Track1" Source="Resources(Images)\monza.png" Height="284" Width="284"/>
+                        <Image x:Name ="Track1" Source="Resources(Images)\Tracks\Bahrain.png" Height="284" Width="284"/>
                         <Border.RenderTransform>
                             <ScaleTransform x:Name="MyScaleTransform7" ScaleX="1" ScaleY="1" />
                         </Border.RenderTransform>
@@ -251,7 +250,7 @@
                             Margin="75"
                             Width="304" 
                             Height="304" Grid.Row="2">
-                        <Image x:Name ="Track" Source="Resources(Images)\monza.png" Height="284" Width="284"/>
+                        <Image x:Name ="Track" Source="Resources(Images)\Tracks\Baku.png" Height="284" Width="284"/>
                         <Border.RenderTransform>
                             <ScaleTransform x:Name="MyScaleTransform6" ScaleX="1" ScaleY="1" />
                         </Border.RenderTransform>
@@ -294,7 +293,7 @@
                             Margin="75"
                             Width="304" 
                             Height="304" Grid.Row="2">
-                        <Image x:Name ="Track3" Source="Resources(Images)\monza.png" Height="284" Width="284"/>
+                        <Image x:Name ="Track3" Source="Resources(Images)\Tracks\Barcelona.png" Height="284" Width="284"/>
                         <Border.RenderTransform>
                             <ScaleTransform x:Name="MyScaleTransform5" ScaleX="1" ScaleY="1" />
                         </Border.RenderTransform>
@@ -337,7 +336,7 @@
                             Padding="10" 
                             Width="304" 
                             Height="304" Grid.Row="2">
-                        <Image x:Name ="Track4" Source="Resources(Images)\monza.png" Height="284" Width="284"/>
+                        <Image x:Name ="Track4" Source="Resources(Images)\Tracks\Imola.png" Height="284" Width="284"/>
                         <Border.RenderTransform>
                             <ScaleTransform x:Name="MyScaleTransform4" ScaleX="1" ScaleY="1" />
                         </Border.RenderTransform>
@@ -379,7 +378,7 @@
                             Padding="10" 
                             Width="304" 
                             Height="304" Grid.Row="2">
-                        <Image x:Name ="Track5" Source="Resources(Images)\monza.png" Height="284" Width="284"/>
+                        <Image x:Name ="Track5" Source="Resources(Images)\Tracks\monza.png" Height="284" Width="284"/>
                         <Border.RenderTransform>
                             <ScaleTransform x:Name="MyScaleTransform" ScaleX="1" ScaleY="1" />
                         </Border.RenderTransform>
@@ -421,7 +420,7 @@
                             Margin="75"
                             Width="304" 
                             Height="304" Grid.Row="2">
-                        <Image x:Name ="Track6" Source="Resources(Images)\monza.png" Height="284" Width="284"/>
+                        <Image x:Name ="Track6" Source="Resources(Images)\Tracks\Jeddah.png" Height="284" Width="284"/>
                         <Border.RenderTransform>
                             <ScaleTransform x:Name="MyScaleTransform2" ScaleX="1" ScaleY="1" />
                         </Border.RenderTransform>
@@ -463,7 +462,7 @@
                             Margin="75"
                             Width="304" 
                             Height="304" Grid.Row="2">
-                        <Image x:Name ="Track7" Source="Resources(Images)\monza.png" Height="284" Width="284"/>
+                        <Image x:Name ="Track7" Source="Resources(Images)\Tracks\Melbourne.png" Height="284" Width="284"/>
                         <Border.RenderTransform>
                             <ScaleTransform x:Name="MyScaleTransform3" ScaleX="1" ScaleY="1" />
                         </Border.RenderTransform>

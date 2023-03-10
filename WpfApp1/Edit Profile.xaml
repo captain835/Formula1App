@@ -548,6 +548,19 @@
                             Height="304">
                             <Image x:Name="Track" Source="Resources(Images)\monza.png" Height="284" Width="284"/>
                         </Border>
+
+                        <ComboBox Style="{DynamicResource ComboBoxStyle1}"
+                            x:Name="TracksBox"
+                            HorizontalAlignment="Center" VerticalAlignment="Top"
+                            Width="200"
+                            Height="30"
+                            BorderThickness="0"
+                            Padding="5"
+                            FontFamily="Gill Sans MT"
+                            Background="#FF3333"
+                            Foreground="Black"
+                            FontSize="14" SelectionChanged="TracksBox_SelectionChanged">
+                        </ComboBox>
                     </StackPanel>
                     <StackPanel>
                         <Border 
@@ -560,6 +573,18 @@
                                 <ImageBrush x:Name="Driver" ImageSource="Resources(Images)\leclerc.png" />
                             </Border.Background>
                         </Border>
+                        <ComboBox Style="{DynamicResource ComboBoxStyle1}"
+                            x:Name="DriversBox"
+                            HorizontalAlignment="Center" VerticalAlignment="Top"
+                            Width="200"
+                            Height="30"
+                            BorderThickness="0"
+                            Padding="5"
+                            FontFamily="Gill Sans MT"
+                            Background="#FF3333"
+                            Foreground="Black"
+                            FontSize="14" SelectionChanged="DriversBox_SelectionChanged">
+                        </ComboBox>
                     </StackPanel>
                     <StackPanel>
                         <Border 
@@ -571,6 +596,19 @@
                             Height="304">
                             <Image x:Name="TeamYeah" Source="Resources(Images)\ferrari.png" Height="284" Width="284"/>
                         </Border>
+                        <ComboBox Style="{DynamicResource ComboBoxStyle1}"
+                            x:Name="TeamsBox"
+                            HorizontalAlignment="Center" VerticalAlignment="Top"
+                            Width="200"
+                            Height="30"
+                            BorderThickness="0"
+                            Padding="5"
+                            FontFamily="Gill Sans MT"
+                            Background="#FF3333"
+                            Foreground="Black"
+                            FontSize="14" SelectionChanged="TeamsBox_SelectionChanged">
+
+                        </ComboBox>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
@@ -600,53 +638,6 @@
                         VerticalContentAlignment="Center"
                         />
             </Border>
-
-
-
-
-            <ComboBox Style="{DynamicResource ComboBoxStyle1}"
-                x:Name="DriversBox"
-                HorizontalAlignment="Left" Margin="1182,200,0,0" Grid.Row="2" VerticalAlignment="Top"
-                Width="200"
-                Height="30"
-                BorderThickness="0"
-                Padding="5"
-                FontFamily="Gill Sans MT"
-                Background="#FF3333"
-                Foreground="Black"
-                FontSize="14" SelectionChanged="DriversBox_SelectionChanged">
-
-            </ComboBox>
-
-            <ComboBox Style="{DynamicResource ComboBoxStyle1}"
-                x:Name="TracksBox"
-                HorizontalAlignment="Left" Margin="853,200,0,0" Grid.Row="2" VerticalAlignment="Top"
-                Width="200"
-                Height="30"
-                BorderThickness="0"
-                Padding="5"
-                FontFamily="Gill Sans MT"
-                Background="#FF3333"
-                Foreground="Black"
-                FontSize="14" SelectionChanged="TracksBox_SelectionChanged">
-
-            </ComboBox>
-
-
-            <ComboBox Style="{DynamicResource ComboBoxStyle1}"
-                x:Name="TeamsBox"
-                HorizontalAlignment="Left" Margin="1504,200,0,0" Grid.Row="2" VerticalAlignment="Top"
-                Width="200"
-                Height="30"
-                BorderThickness="0"
-                Padding="5"
-                FontFamily="Gill Sans MT"
-                Background="#FF3333"
-                Foreground="Black"
-                FontSize="14" SelectionChanged="TeamsBox_SelectionChanged">
-
-            </ComboBox>
-
         </Grid>
     </Page>
 </Window>

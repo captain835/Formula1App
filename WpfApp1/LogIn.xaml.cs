@@ -47,7 +47,7 @@ namespace WpfApp1
             {
                 
 
-                SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True");
+                SqlConnection sqlCon = new SqlConnection(@"Data Source=DLAPTOP; Initial Catalog=f1; Integrated Security=True");
                 User currentUser = new User();
                 bool pass = false;
                 bool user = false;
@@ -504,7 +504,7 @@ namespace WpfApp1
                     break;
 
                 case 7:
-                    imageTeam = "pack://application:,,,/Resources(Images)\\Team\\mercedes.jpg";
+                    imageTeam = "pack://application:,,,/Resources(Images)\\Team\\mercedes.png";
                     break;
 
                 case 8:

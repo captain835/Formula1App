@@ -43,7 +43,7 @@ namespace WpfApp1
             // tuka tr se savenat promenite kum database-a
 
             User currentUser = new User();
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True");
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=DLAPTOP; Initial Catalog=f1; Integrated Security=True");
             Profile obj = new Profile();
             try
             {
@@ -159,7 +159,7 @@ namespace WpfApp1
         private void TeamsBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             User currentUser = new User();
-            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True"))
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=DLAPTOP; Initial Catalog=f1; Integrated Security=True"))
             {
                 sqlCon.Open();
                 string queryTeams = $"Select id from teams where name = '{TeamsBox.SelectedItem.ToString()}' ";
@@ -169,7 +169,7 @@ namespace WpfApp1
                 if (readerTeams.Read())
                 {
                     updatedTeam = (int)readerTeams["id"];
-                    MessageBox.Show(updatedTeam.ToString());
+                    //MessageBox.Show(updatedTeam.ToString());
                     haveToUpdateTeam = true;
                 }
             }
@@ -180,7 +180,7 @@ namespace WpfApp1
         private void DriversBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             User currentUser = new User();
-            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True"))
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=DLAPTOP; Initial Catalog=f1; Integrated Security=True"))
             {
                 sqlCon.Open();
                 string queryDriver = $"Select id from drivers where First_name = '{DriversBox.SelectedItem.ToString()}' ";
@@ -202,7 +202,7 @@ namespace WpfApp1
         private void TracksBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             User currentUser = new User();
-            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True"))
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=DLAPTOP; Initial Catalog=f1; Integrated Security=True"))
             {
                 sqlCon.Open();
                 string queryTrack = $"Select id from tracks where name = '{TracksBox.SelectedItem.ToString()}' " ;
