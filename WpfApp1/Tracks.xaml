@@ -17,9 +17,9 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="155*"/>
-                <RowDefinition Height="310*"/>
+                <RowDefinition Height="150*"/>
                 <RowDefinition Height="593*"/>
-                <RowDefinition Height="353*"/>
+                <RowDefinition Height="150*"/>
             </Grid.RowDefinitions>
             <Grid Background="DimGray" Grid.Row="0"/>
 
@@ -199,6 +199,305 @@
                     </Image.Triggers>
                 </Image>
             </Button>
+
+            <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel  Orientation="Horizontal">
+                    <Border Background="DimGray"
+                            CornerRadius="20" 
+                            Margin="75"
+                            Padding="10" 
+                            Width="304" 
+                            Height="304" Grid.Row="2">
+                        <Image x:Name ="Track1" Source="Resources(Images)\monza.png" Height="284" Width="284"/>
+                        <Border.RenderTransform>
+                            <ScaleTransform x:Name="MyScaleTransform7" ScaleX="1" ScaleY="1" />
+                        </Border.RenderTransform>
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform7"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     To="1.5" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform7"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     To="1.5" Duration="0:0:0.2" />
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform7"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform7"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                    </Border>
+                    
+                    
+                    
+                    
+                    
+                    <Border Background="DimGray"
+                            CornerRadius="20" 
+                            Padding="10" 
+                            Margin="75"
+                            Width="304" 
+                            Height="304" Grid.Row="2">
+                        <Image x:Name ="Track" Source="Resources(Images)\monza.png" Height="284" Width="284"/>
+                        <Border.RenderTransform>
+                            <ScaleTransform x:Name="MyScaleTransform6" ScaleX="1" ScaleY="1" />
+                        </Border.RenderTransform>
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform6"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     To="1.5" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform6"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     To="1.5" Duration="0:0:0.2" />
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform6"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform6"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                    </Border>
+                   
+                    
+                    
+                    
+                    
+                    <Border Background="DimGray"
+                            CornerRadius="20" 
+                            Padding="10" 
+                            Margin="75"
+                            Width="304" 
+                            Height="304" Grid.Row="2">
+                        <Image x:Name ="Track3" Source="Resources(Images)\monza.png" Height="284" Width="284"/>
+                        <Border.RenderTransform>
+                            <ScaleTransform x:Name="MyScaleTransform5" ScaleX="1" ScaleY="1" />
+                        </Border.RenderTransform>
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform5"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     To="1.5" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform5"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     To="1.5" Duration="0:0:0.2" />
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform5"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform5"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                    </Border>
+                    
+                    
+                    
+                    
+                    
+                    <Border Background="DimGray"
+                            CornerRadius="20" 
+                            Margin="75"
+                            Padding="10" 
+                            Width="304" 
+                            Height="304" Grid.Row="2">
+                        <Image x:Name ="Track4" Source="Resources(Images)\monza.png" Height="284" Width="284"/>
+                        <Border.RenderTransform>
+                            <ScaleTransform x:Name="MyScaleTransform4" ScaleX="1" ScaleY="1" />
+                        </Border.RenderTransform>
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform4"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     To="1.5" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform4"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     To="1.5" Duration="0:0:0.2" />
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform4"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform4"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                    </Border>
+                </StackPanel>
+               
+                
+                <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Border Background="red"
+                            CornerRadius="20" 
+                            Margin="75"
+                            Padding="10" 
+                            Width="304" 
+                            Height="304" Grid.Row="2">
+                        <Image x:Name ="Track5" Source="Resources(Images)\monza.png" Height="284" Width="284"/>
+                        <Border.RenderTransform>
+                            <ScaleTransform x:Name="MyScaleTransform" ScaleX="1" ScaleY="1" />
+                        </Border.RenderTransform>
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     To="1.5" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     To="1.5" Duration="0:0:0.2" />
+                                        
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                    </Border>
+                        
+                        
+                        
+                        
+                    <Border Background="DimGray"
+                            CornerRadius="20" 
+                            Padding="10" 
+                            Margin="75"
+                            Width="304" 
+                            Height="304" Grid.Row="2">
+                        <Image x:Name ="Track6" Source="Resources(Images)\monza.png" Height="284" Width="284"/>
+                        <Border.RenderTransform>
+                            <ScaleTransform x:Name="MyScaleTransform2" ScaleX="1" ScaleY="1" />
+                        </Border.RenderTransform>
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform2"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     To="1.5" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform2"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     To="1.5" Duration="0:0:0.2" />
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform2"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform2"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                    </Border>
+                    
+                        
+                        
+                        
+                    <Border Background="DimGray"
+                            CornerRadius="20" 
+                            Padding="10" 
+                            Margin="75"
+                            Width="304" 
+                            Height="304" Grid.Row="2">
+                        <Image x:Name ="Track7" Source="Resources(Images)\monza.png" Height="284" Width="284"/>
+                        <Border.RenderTransform>
+                            <ScaleTransform x:Name="MyScaleTransform3" ScaleX="1" ScaleY="1" />
+                        </Border.RenderTransform>
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform3"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     To="1.5" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform3"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     To="1.5" Duration="0:0:0.2" />
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform3"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="MyScaleTransform3"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                    </Border>
+
+                </StackPanel>
+            </StackPanel>
         </Grid>
     </Page>
 </Window>

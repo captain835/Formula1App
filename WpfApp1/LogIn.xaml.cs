@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -48,6 +49,8 @@ namespace WpfApp1
 
                 SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True");
                 User currentUser = new User();
+                bool pass = false;
+                bool user = false;
                 try
                 {
 
@@ -58,8 +61,7 @@ namespace WpfApp1
                     SqlDataReader readerPass;
                     readerPass = cmdPass.ExecuteReader();
 
-                    bool pass = false;
-                    bool user = false;
+
 
                     if (readerPass.Read())
                     {
@@ -116,9 +118,139 @@ namespace WpfApp1
                     {
 
                     }
+                    readerGetId.Close();
 
-                    reader.Close();
 
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+
+
+
+
+                try
+                {
+
+
+                    string queryGetBio = $"Select bio from UserInfo where id = {currentUser.Id} ";
+
+                    SqlCommand cmdGetBio = new SqlCommand(queryGetBio, sqlCon);
+                    SqlDataReader readerGetBio;
+                    readerGetBio = cmdGetBio.ExecuteReader();
+                    if (readerGetBio.Read())
+                    {
+
+
+                        currentUser.Bio = readerGetBio["bio"].ToString();
+
+                    }
+                    else
+                    {
+
+                    }
+                    readerGetBio.Close();
+
+
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+
+
+
+                try
+                {
+
+
+                    string queryGetFavTrack = $"Select favTrackId from UserInfo where id = {currentUser.Id} ";
+
+                    SqlCommand cmdGetFavTrack = new SqlCommand(queryGetFavTrack, sqlCon);
+                    SqlDataReader readerGetFavTrack;
+                    readerGetFavTrack = cmdGetFavTrack.ExecuteReader();
+                    if (readerGetFavTrack.Read())
+                    {
+
+
+                        currentUser.FavTrack = currentUser.GetTrackImage((int)readerGetFavTrack["favTrackId"]);
+
+                    }
+                    else
+                    {
+
+                    }
+                    readerGetFavTrack.Close();
+
+
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+                try
+                {
+
+
+                    string queryGetFavDriver = $"Select favDriverId from UserInfo where id = {currentUser.Id} ";
+
+                    SqlCommand cmdGetFavDriver = new SqlCommand(queryGetFavDriver, sqlCon);
+                    SqlDataReader readerGetFavDriver;
+                    readerGetFavDriver = cmdGetFavDriver.ExecuteReader();
+                    if (readerGetFavDriver.Read())
+                    {
+
+
+                        currentUser.FavDriver = currentUser.GetDriverImage((int)readerGetFavDriver["favDriverId"]);
+
+                    }
+                    else
+                    {
+
+                    }
+                    readerGetFavDriver.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+
+
+
+                try
+                {
+
+
+                    string queryGetFavTeam = $"Select favTeamId from UserInfo where id = {currentUser.Id} ";
+
+
+                    SqlCommand cmdGetFavTeam = new SqlCommand(queryGetFavTeam, sqlCon);
+                    SqlDataReader readerGetFavTeam;
+                    readerGetFavTeam = cmdGetFavTeam.ExecuteReader();
+                    if (readerGetFavTeam.Read())
+                    {
+
+
+                        currentUser.FavTeam = currentUser.GetTeamImage((int)readerGetFavTeam["favTeamId"]);
+
+                    }
+                    else
+                    {
+
+                    }
+
+                    readerGetFavTeam.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    
+                }
 
                     if (pass && user)
                     {
@@ -130,15 +262,7 @@ namespace WpfApp1
                     {
                         MessageBox.Show("Username or Password Inncorrect");
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    sqlCon.Close();
-                }
+                sqlCon.Close();
             }
         }
         private void myTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -156,9 +280,9 @@ namespace WpfApp1
     public class User
     {
         static int id = 0;
-        static string favTeam = "";
-        static string favDriver = "";
-        static string favTrack = "";
+        static string favTeam = "pack://application:,,,/Resources(Images)\\no-image-icon-32.png";
+        static string favDriver = "pack://application:,,,/Resources(Images)\\no-image-icon-32.png";
+        static string favTrack = "pack://application:,,,/Resources(Images)\\no-image-icon-32.png";
         static string bio = "";
         static string username = "";
 
@@ -202,6 +326,204 @@ namespace WpfApp1
             {
                 username = value;
             }   
+        }
+
+
+        public string GetTrackImage(int TrackId)
+        {
+            
+                string imageTrack = "";
+                switch (TrackId)
+                {
+                    case 1:
+                        return imageTrack = "pack://application:,,,/Resources(Images)\\Tracks\\Bahrain.png";
+                        break;
+
+                    case 2:
+                        return imageTrack = "pack://application:,,,/Resources(Images)\\Tracks\\Jeddah.png";
+
+                        break;
+
+                    case 3:
+                        return imageTrack = "pack://application:,,,/Resources(Images)\\Tracks\\Melbourne.png";
+
+
+                        break;
+
+                    case 4:
+                        return imageTrack = "pack://application:,,,/Resources(Images)\\Tracks\\Baku.png";
+
+
+                        break;
+
+                    case 5:
+                        return imageTrack = "pack://application:,,,/Resources(Images)\\Tracks\\Miami.png";
+
+                        break;
+
+                    case 6:
+                        return imageTrack = "pack://application:,,,/Resources(Images)\\Tracks\\Imola.png";
+
+                        break;
+
+                    case 7:
+                        return imageTrack = "pack://application:,,,/Resources(Images)\\Tracks\\Monaco.png";
+
+                        break;
+
+                    default:
+                        return imageTrack;
+                        break;
+
+
+
+                }
+            
+            
+        }
+
+        public string GetDriverImage(int DriverId)
+        {
+            string imageDriver = "";
+            switch (DriverId)
+            {
+                case 1:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Verstappen.jpg";
+                    break;
+
+                case 2:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Sargeant.png";
+                    break;
+
+                case 3:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Norris.png";
+                    break;
+
+                case 4:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\DeVries.png";
+                    break;
+
+                case 5:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Hulkenberg.png";
+                    break;
+
+                case 6:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Gasly.png";
+                    break;
+
+                case 7:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Perez.jpg";
+                    break;
+
+                case 8:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Alonso.png";
+                    break;
+
+                case 9:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Leclerc.jpg";
+                    break;
+
+                case 11:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Stroll.jpg";
+                    break;
+
+                case 12:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Magnussen.png";
+                    break;
+
+                case 13:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Tsunoda.png";
+                    break;
+
+                case 14:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Albon.png";
+                    break;
+
+                case 15:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Zhou.png";
+                    break;
+
+                case 16:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Ocon.png";
+                    break;
+
+                case 17:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Hamilton.png";
+                    break;
+
+                case 18:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Piastri.png";
+                    break;
+
+                case 19:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Sainz.jpg";
+                    break;
+
+                case 20:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Russel.png";
+                    break;
+
+                case 10:
+                    imageDriver = "pack://application:,,,/Resources(Images)\\Drivers\\Bottas.jpg";
+                    break;
+
+
+
+            }
+
+            return imageDriver;
+        }
+
+        public string GetTeamImage(int TeamId)
+        {
+            string imageTeam = "";
+            switch (TeamId)
+            {
+                case 1:
+                    imageTeam = "pack://application:,,,/Resources(Images)\\Team\\redbull.png";
+                    break;
+
+                case 2:
+                    imageTeam = "pack://application:,,,/Resources(Images)\\Team\\alphatauri.png";
+                    break;
+
+                case 3:
+                    imageTeam = "pack://application:,,,/Resources(Images)\\Team\\ferrari.png";
+                    break;
+
+                case 4:
+                    imageTeam = "pack://application:,,,/Resources(Images)\\Team\\alfaromeo.png";
+                    break;
+
+                case 5:
+                    imageTeam = "pack://application:,,,/Resources(Images)\\Team\\haas.png";
+                    break;
+
+                case 6:
+                    imageTeam = "pack://application:,,,/Resources(Images)\\Team\\alpine.png";
+                    break;
+
+                case 7:
+                    imageTeam = "pack://application:,,,/Resources(Images)\\Team\\mercedes.jpg";
+                    break;
+
+                case 8:
+                    imageTeam = "pack://application:,,,/Resources(Images)\\Team\\williams.png";
+                    break;
+
+                case 9:
+                    imageTeam = "pack://application:,,,/Resources(Images)\\Team\\aston.png";
+                    break;
+
+                case 10:
+                    imageTeam = "pack://application:,,,/Resources(Images)\\Team\\mclaren.png";
+                    break;
+
+
+
+            }
+
+            return imageTeam;
         }
     }
 }

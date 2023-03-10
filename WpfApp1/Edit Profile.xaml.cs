@@ -30,6 +30,14 @@ namespace WpfApp1
             tb.Text = "";
         }
 
+        int updatedDriver = 0;
+        bool haveToUpdateDriver = false;
+
+        int updatedTeam = 0;
+        bool haveToUpdateTeam = false;
+
+        int updatedTrack = 0;
+        bool haveToUpdateTrack = false;
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             // tuka tr se savenat promenite kum database-a
@@ -43,20 +51,45 @@ namespace WpfApp1
 
                 if (username.Text!="")
                 {
-                    string queryUsername = "UPDATE UserInfo SET username ='" + username.Text + "' WHERE id = " + currentUser.Id;
-                    SqlCommand cmdUsername = new SqlCommand(queryUsername, sqlCon);
-                    cmdUsername.ExecuteNonQuery();
+                    string query1 = "UPDATE UserInfo SET username ='" + username.Text + "' WHERE id = " + currentUser.Id;
+                    SqlCommand cmd1 = new SqlCommand(query1, sqlCon);
+                    cmd1.ExecuteNonQuery();
                     currentUser.Username = username.Text;
                 }
 
                 if (bio.Text != "")
                 {
-                    string queryBio = "UPDATE UserInfo SET bio ='" + bio.Text + "' WHERE id = " + currentUser.Id;
-                    SqlCommand cmdBio = new SqlCommand(queryBio, sqlCon);
-                    cmdBio.ExecuteNonQuery();
+                    string query2 = "UPDATE UserInfo SET bio ='" + bio.Text + "' WHERE id = " + currentUser.Id;
+                    SqlCommand cmd2 = new SqlCommand(query2, sqlCon);
+                    cmd2.ExecuteNonQuery();
                     currentUser.Bio = bio.Text;
                 }
 
+
+                if (haveToUpdateDriver)
+                {
+                    string query3 = "UPDATE UserInfo SET favDriverID ='" + updatedDriver + "' WHERE id = " + currentUser.Id;
+                    SqlCommand cmd3 = new SqlCommand(query3, sqlCon);
+                    cmd3.ExecuteNonQuery();
+                    currentUser.FavDriver = currentUser.GetDriverImage(updatedDriver);
+                }
+
+                if (haveToUpdateTeam)
+                {
+                    
+                    string query4 = "UPDATE UserInfo SET favTeamId ='" + updatedTeam + "' WHERE id = " + currentUser.Id;
+                    SqlCommand cmd4 = new SqlCommand(query4, sqlCon);
+                    cmd4.ExecuteNonQuery();
+                    currentUser.FavTeam = currentUser.GetTeamImage(updatedTeam);
+                }
+
+                if (haveToUpdateTrack)
+                {
+                    string query5 = "UPDATE UserInfo SET favTrackId ='" + updatedTrack + "' WHERE id = " + currentUser.Id;
+                    SqlCommand cmd5 = new SqlCommand(query5, sqlCon);
+                    cmd5.ExecuteNonQuery();
+                    currentUser.FavTrack = currentUser.GetTrackImage(updatedTrack);
+                }
 
 
 
@@ -116,14 +149,85 @@ namespace WpfApp1
             this.Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void profileButton_Click(object sender, RoutedEventArgs e)
         {
+            Profile obj = new Profile();
+            obj.Show();
+            this.Close();
+        }
+
+        private void TeamsBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            User currentUser = new User();
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True"))
+            {
+                sqlCon.Open();
+                string queryTeams = $"Select id from teams where name = '{TeamsBox.SelectedItem.ToString()}' ";
+                SqlCommand cmdTeams = new SqlCommand(queryTeams, sqlCon);
+                SqlDataReader readerTeams;
+                readerTeams = cmdTeams.ExecuteReader();
+                if (readerTeams.Read())
+                {
+                    updatedTeam = (int)readerTeams["id"];
+                    MessageBox.Show(updatedTeam.ToString());
+                    haveToUpdateTeam = true;
+                }
+            }
+
 
         }
 
-        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void DriversBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            User currentUser = new User();
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True"))
+            {
+                sqlCon.Open();
+                string queryDriver = $"Select id from drivers where First_name = '{DriversBox.SelectedItem.ToString()}' ";
+                SqlCommand cmdDriver = new SqlCommand(queryDriver, sqlCon);
+                SqlDataReader readerDriver;
+                readerDriver = cmdDriver.ExecuteReader();
+                if (readerDriver.Read())
+                {
+                    updatedDriver = (int)readerDriver["id"];
 
+                    haveToUpdateDriver = true;
+                }
+                
+                
+                
+            }
+        }
+
+        private void TracksBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            User currentUser = new User();
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True"))
+            {
+                sqlCon.Open();
+                string queryTrack = $"Select id from tracks where name = '{TracksBox.SelectedItem.ToString()}' " ;
+                SqlCommand cmdTrack = new SqlCommand(queryTrack, sqlCon);
+                SqlDataReader readerTrack;
+                readerTrack = cmdTrack.ExecuteReader();
+                if (readerTrack.Read())
+                {
+                    updatedTrack = (int)readerTrack["id"];
+                    haveToUpdateTrack = true;
+                }
+            }
         }
     }
 }
+//Get favorite track
+
+
+
+
+
+//Get favorite driver
+
+
+
+//Get favorite team
+
+

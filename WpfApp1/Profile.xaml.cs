@@ -52,7 +52,7 @@ namespace WpfApp1
             Edit_Profile obj = new Edit_Profile();
             Console.WriteLine("test");
             User currentUser = new User();
-            int teamsCount = 0;
+
             List<string> Teams = new List<string>();
             try
             {
@@ -86,50 +86,49 @@ namespace WpfApp1
                
                 obj.TeamYeah.Source = new BitmapImage(new Uri(currentUser.FavTeam));
 
-                obj.testBox.Items.Add("Alice");
-                
 
-                using (SqlConnection SqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True"))
-                {
-                    SqlCon.Open();
-
-                    SqlCommand cmd = new SqlCommand($"Select count(*) as count from drivers", SqlCon);
-                    SqlDataReader reader;
-                    reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        teamsCount = (int)reader["count"];
-                        
-                    }
-                    reader.Close();
-
-                }
 
                 SqlConnection SqlCon2 = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True");
                 
                 SqlCon2.Open();
-                SqlCommand cmdAddToList = new SqlCommand($"Select First_name from drivers", SqlCon2);
+                SqlCommand cmdAddToList = new SqlCommand("Select First_name from drivers", SqlCon2);
                 SqlDataReader readerAddToList;
                 readerAddToList = cmdAddToList.ExecuteReader();
-                while (readerAddToList.Read())
+                int i = 0;
+                while (readerAddToList.Read() && i <20)
                 {
-
-                    obj.testBox.Items.Add(readerAddToList["First_name"].ToString());
+                    i++;
+                    obj.DriversBox.Items.Add(readerAddToList["First_name"].ToString());
                 }
                 
                 readerAddToList.Close();
 
-                //using (SqlConnection SqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=f1; Integrated Security=True"))
-                //{
-                //    SqlCon.Open();
-                //    SqlDataAdapter ProjectTableTableAdapter = new SqlDataAdapter("SELECT * FROM teams", SqlCon);
-                //    DataSet ds = new DataSet();
-                //    ProjectTableTableAdapter.Fill(ds, "First_name");
 
-                //    obj.ProjectComboBox.ItemsSource = ds.Tables["First_name"].DefaultView;
-                //    obj.ProjectComboBox.DisplayMemberPath = "ProjectName";
-                //    obj.ProjectComboBox.SelectedValuePath = "RFIDirectory";
-                //}
+
+                SqlCommand cmdAddToListTeams = new SqlCommand("Select name from teams", SqlCon2);
+                SqlDataReader readerAddToListTeams;
+                readerAddToListTeams = cmdAddToListTeams.ExecuteReader();
+                while (readerAddToListTeams.Read())
+                {
+
+                    obj.TeamsBox.Items.Add(readerAddToListTeams["name"].ToString());
+                }
+
+                readerAddToListTeams.Close();
+
+
+                SqlCommand cmdAddToListTracks = new SqlCommand("Select name from tracks", SqlCon2);
+                SqlDataReader readerAddToListTracks;
+                readerAddToListTracks = cmdAddToListTracks.ExecuteReader();
+                while (readerAddToListTracks.Read())
+                {
+
+                    obj.TracksBox.Items.Add(readerAddToListTracks["name"].ToString());
+                }
+
+                readerAddToListTracks.Close();
+
+
             }
             catch (Exception ex)
             {
